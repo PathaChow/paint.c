@@ -1,23 +1,44 @@
 #include <stdio.h>
 
+quit(char** canvas, char c);
 
 
 
-char** createCanvas (numRows, int numCols, char** board){
-	
+void printCanvas(int numRows, int numCols, char** canvas){
+
+for (i = 0 ; i < numRows; i++){
+	printf("%d", numRows - i -1)
+	for(j = 0; j < numCols; j++){
+		printf("%c", canvas[i][j]);
+		       }
+	printf("\n");
+}
+printf("  "); 	 
+for (j = 0 ; j < numCols, ; j++){
+	printf("%d", j)
+}
+return 0; 
+}
+		
+		
+char** makeCanvas (numRows, int numCols){	
 char** canvas = (char** malloc(numRows * sizeof(char*)); 
-int i; 
-
+		 
+int i;
+int j; 
+		 	 
 for (i = 0; i < numRows; i++){
 	canvas[i] = (char*)malloc(numCols *sizeof(char));
 	for (j = 0; j < numCols; j++){
 	
-		canvas[i][j] = '*'; 
+	canvas[i][j] = '*'; 
 	}
-}
+}		 		 
 return canvas; 
 }
 
+		 
+		 
 int main(argc, argv[]){
 	
 	
@@ -29,32 +50,33 @@ int main(argc, argv[]){
 		numCols = atoi(argv[2]);
 	}
 	char*** canvas; 
-	createCanvas();
-	commands();
+	printCanvas();
+	makeCanvas();
 	input(); 
 	cleanup(); 
 	
 	return 0;
 }
+		 
+		 
+		 
 
 void input(){
 	
-int numRow; 
-int numCol; 
+quit(char** canvas, char c);
+help();
 
-
-	
-	
-	
+		
 }
 
-commands(char** canvas){
-	char c;
+		 
+		 
+		 
+		 
+void quit(char** canvas, char c){		 
 	if(c == "q"){
 		free(canvas);
-		exit (0); 
-	}
-	else if (c == "h"){
-		
-	}
+		exit (0);
+}
+return; 
 }
