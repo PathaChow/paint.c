@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct board_Dimension {
+   int rows;
+   int cols;
+} boardDimension;
 
 char** makeCanvas (int numRows, int numCols);
 void printCanvas(int numRows, int numCols, char** canvas);
@@ -47,22 +51,20 @@ return canvas;
 		 
 		 
 int main(int argc, char* argv[]){
-	int numRows;
-	int numCols;
 	
 	if (argc < 2){
-		numRows = 10; 
-		numCols = 10; 
+		boardDimension.rows = 10; 
+		boardDimension.cols = 10; 
 	} else {
-		numRows = atoi(argv[1]);
-		numCols = atoi(argv[2]);
+		boardDimension.rows = atoi(argv[1]);
+		boardDimension.cols = atoi(argv[2]);
 	} 
 
 	 
 	char** canvas; 
 	
-	setUp(&canvas, numRows, numCols);
-	printCanvas(numRows, numCols, canvas);
+	setUp(&canvas, boardDimension.rows, boardDimension.cols);
+	printCanvas(boardDimension.rows, boardDimension.cols, canvas);
 	
 	//input(); 
 	//cleanup(); 
