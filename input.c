@@ -43,6 +43,7 @@ void ReadInput (){
         Load();
     }
     else{
+        printf("Unrecognized command. Type h for help.\n");
         ReadInput ();
     }
 }
@@ -52,13 +53,28 @@ void Quit(){
 }
 
 void Help(){
-    
+    printf("Commands:\n");
+	printf("Help: h\n");
+	printf("Quit: q\n");
+	printf("Draw line: w row_start col_start row_end col_end\n");
+	printf("Resize: r num_rows num_cols\n");
+	printf("Add row or column: a [r | c] pos\n");
+	printf("Delete row or column: d [r | c] pos\n");
+	printf("Erase: e row col\n");
+	printf("Save: s file_name\n");
+	printf("Load: l file_name\n");
 }
 
 void Write(){
     int row1, col1, row2, col2;
-    scanf(" %d %d %d %d", &row1, &col1, &row2, &col2);
-    if(row1-row2 == col1-col2){
+    if (scanf(" %d %d %d %d", &row1, &col1, &row2, &col2)!=4){
+        printf("Improper draw command.\n");
+    }
+    else if(row1<0||row1>strlen)
+    else if(row1 == row2 && col1 == col2){
+        canvas[row1][col1] = '-';
+    }
+    else if(row1-row2 == col1-col2){
         LeftSlash(row1, col1, row2, col2);
     }
     else if(row1-row2 == col2-col1){
@@ -71,7 +87,7 @@ void Write(){
         VerticalDash(row1, col1, row2, col2);
     }
     else{
-        printf("not a straight line.\n");
+        printf("Cannot draw the line as it is not straight.\n");
     }
 }
 
